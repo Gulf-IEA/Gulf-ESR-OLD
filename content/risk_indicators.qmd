@@ -1,0 +1,7 @@
+---
+title: Risks to meeting fishery management objectives
+lightbox: TRUE
+---
+
+In this section, we report indicators that capture identified risks to the ecosystem that could impact the ability to meet Fishery Management Plan objectives. Unless otherwise specified, physical indicators reported for the U.S. Caribbean region were calculated over a bounding box with limits of longitude 68 degrees W to 64.5 degrees W and latitude 17.5 degrees N to 18.75 degrees N.
+
