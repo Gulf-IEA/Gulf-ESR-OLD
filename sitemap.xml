@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/index.html</loc>
-    <lastmod>2025-05-07T12:19:52.059Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/index.html</loc>
+    <lastmod>2025-05-07T12:53:54.733Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/setup.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/performance_indicators.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/add-content.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/risk_indicators.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/customizing.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/synthesis.html</loc>
+    <lastmod>2025-05-07T12:53:54.729Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/rendering.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/recommendations.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/figures_and_tables.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/acknowledgements.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/code.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/contributors.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/adding-refs.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/content/references.html</loc>
+    <lastmod>2025-05-07T12:53:54.728Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/content/references.html</loc>
-    <lastmod>2025-05-07T12:19:52.055Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/Caribbean-Ecosystem-Status-Report.pdf</loc>
+    <lastmod>2025-05-07T12:59:48.933Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/NOAA-quarto-book.pdf</loc>
-    <lastmod>2025-05-07T12:27:45.109Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-book/NOAA-quarto-book.docx</loc>
-    <lastmod>2025-05-07T12:27:46.419Z</lastmod>
+    <loc>https://gulf-iea.github.io/Caribbean-ESR-2/Caribbean-Ecosystem-Status-Report.docx</loc>
+    <lastmod>2025-05-07T12:59:49.353Z</lastmod>
   </url>
 </urlset>
