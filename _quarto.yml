@@ -14,7 +14,7 @@ book:
   author:
     - name: Southeast Integrated Ecosystem Assessment Program
       affiliations:
-        - name: NOAA Fisheres
+        - name: NOAA Fisheries
           department: Southeast Fisheries Science Center
   chapters:
     - index.qmd
