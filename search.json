@@ -2,111 +2,131 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Caribbean Ecosystem Status Report",
+    "title": "Gulf of America Ecosystem Status Report",
     "section": "",
-    "text": "Executive Summary\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.\nNew paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo gravida justo consectetur condimentum. Proin eget felis non nunc tristique malesuada vel ut tortor. Vivamus lacinia aliquet lorem in congue. In hac habitasse platea dictumst. Etiam non felis iaculis, efficitur libero in, porta nunc. Sed sit amet nisi non justo scelerisque feugiat. Pellentesque porta consectetur sapien, porttitor iaculis ligula fermentum ac. Pellentesque fermentum elementum lacus non tempus. Aenean eu leo lobortis, vulputate mi at, varius sapien. In congue consectetur ultricies. Maecenas volutpat facilisis arcu, eget sodales tellus consequat nec. Integer ullamcorper ex nec leo aliquam tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dui massa, facilisis at aliquet eu, malesuada vel neque. Donec fermentum elit eu tortor euismod, sed mollis lacus blandit.",
+    "text": "0.1 About this report\nThe purpose of this report is to synthesize diverse information sources to assist with implementation of ecosystem-based fisheries management in the U.S. Gulf of America region. A suite of indicators that span physical, biological, social and economic elements of the ecosystem are reported with the goal of helping the Gulf Council and other resource managers measure progress toward fishery management objectives. The report relies on both previously identified proposed indicators and expert vetting to select a suite of indicators that best address the fishery management plan (FMP) objectives for the U.S. Gulf of America. Information in this report is organized into two sections: 1) tracking performance toward predefined fishery management objectives, and 2) potential risks to meeting those fishery management objectives.\nThe first set of indicators can be used to consider progress toward stated management objectives. Management objectives were gleaned from the Fishery Management Plans and categorized into seven groups: food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance, and protection of ecosystems. Each of these sections contains a selection of indicators that can be used to better understand how well these respective management objectives are being met. Note that for some indicators, directionality can be associated with positive or negative progress toward management objectives (e.g., increases in abundance of economically important species is generally associated with improved management). However for other indicators, directionality can be considered neutral (e.g., proportion of diving trips, changes in contribution to revenue), although changes in these indicators represent important shifts in the fishing dynamics of which managers should be aware. The risk indicator section quantifies major stressors (as identified by stakeholders) that capture the potential risks to meeting fishery management objectives. These indicators provide managers with an understanding of the backdrop against which management is occurring. Major changes in these indicators may be associated with decreased effectiveness of fisheries management, if the influences of external environmental or economic stressors are strong relative to influences from adjustments in fishing activity.\nThis report was created in Quarto (https://github.com/quarto-dev/quarto-cli/) using the NOAA Quarto book template (https://github.com/nmfs-opensci/NOAA-quarto-book). A github repository houses all the indicator data and R code used to compile the report (https://github.com/Gulf-IEA/Gulf-ESR).",
     "crumbs": [
-      "Executive Summary"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#indicator-selection",
+    "href": "index.html#indicator-selection",
+    "title": "Gulf of America Ecosystem Status Report",
+    "section": "0.2 Indicator selection",
+    "text": "0.2 Indicator selection\nxxx",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#notes-on-interpreting-time-series-figures",
+    "href": "index.html#notes-on-interpreting-time-series-figures",
+    "title": "Gulf of America Ecosystem Status Report",
+    "section": "0.3 Notes on interpreting time series figures",
+    "text": "0.3 Notes on interpreting time series figures\nTime series data are plotted in a standardized format for ease of interpretation (e.g., Figure 1). The x-axis represents the temporal dimension, which may be monthly, yearly, or irregular time steps, and the y-axis represents the indicator value in units specified in the axis label. Measures of uncertainty in the indicator values are also shown, when available. The dashed horizontal line represents the mean indicator value across the entire time series, and the solid horizontal lines denote the mean plus or minus one standard deviation. Red shaded areas and green shaded areas show years for which the indicator value is below or above one standard deviation from the mean, respectively. The blue vertical shaded box highlights the last five years of indicator values, over which additional metrics are calculated. Black circles to the right of each figure indicate whether the indicator values over the last five years are greater (plus sign), less than (minus sign), or within (solid circle) one standard deviation from the mean of the overall time series. Arrows to the right of each figure indicate whether the least squares linear fit through the last five years of data produces a positive or negative slope that is greater than one standard deviation (upward or downward arrows respectively), or less than one standard deviation (left-right arrow).\n\n\n\n\n\n\nFigure 1: Example time series plot, showing an indicator plotted with its mean and standard deviation, and trend analysis for the most recent five years of data. See text for a more detailed description of specific calculations.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
     "objectID": "content/performance_indicators.html",
     "href": "content/performance_indicators.html",
-    "title": "1  Tracking performance toward fishery management objectives",
+    "title": "2  Tracking performance toward fishery management objectives",
     "section": "",
     "text": "In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
     ]
   },
   {
     "objectID": "content/risk_indicators.html",
     "href": "content/risk_indicators.html",
-    "title": "2  Risks to meeting fishery management objectives",
+    "title": "3  Risks to meeting fishery management objectives",
     "section": "",
     "text": "In this section, we report indicators that capture identified risks to the ecosystem that could impact the ability to meet Fishery Management Plan objectives. Unless otherwise specified, physical indicators reported for the U.S. Caribbean region were calculated over a bounding box with limits of longitude 68 degrees W to 64.5 degrees W and latitude 17.5 degrees N to 18.75 degrees N.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Risks to meeting fishery management objectives</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Risks to meeting fishery management objectives</span>"
     ]
   },
   {
     "objectID": "content/synthesis.html",
     "href": "content/synthesis.html",
-    "title": "3  Integrated ecosystem perspectives",
+    "title": "4  Integrated ecosystem perspectives",
     "section": "",
     "text": "For the purpose of synthesizing the information contained in the full suite of indicators presented in this report, we analyze the full indicator suite using multivariate methods. Principal components analysis (PCA) is a statistical method that distills a large number of potentially related indicators into a smaller number of indices representing most of the variability in the data set. We analyze the indicator suite separately by category: 1) risks to meeting management objectives, 2) management objective indicators based on fishery-independent data, 3) management objective indicators based on fishery-dependent data, and 4) other management objective indicators. A traffic light plot of the indicator suite is presented for the purpose of comprehensively viewing changes in the different parts of the ecosystem over time (?fig-traffic). A biplot of the principal components analysis is presented to convey temporal patterns in the progression of ecosystem status (figure). PCA was carried out on a scaled matrix for all indicators with at least 12 years of data; any missing values were imputed with means of the time series. In the biplot, the labels represent time (years xxxx-xxxx), the rainbow line represents chronology between adjacent years, and the distance between points conveys how different the indicator values were in those years.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Integrated ecosystem perspectives</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Integrated ecosystem perspectives</span>"
     ]
   },
   {
     "objectID": "content/recommendations.html",
     "href": "content/recommendations.html",
-    "title": "4  Research recommendations",
+    "title": "5  Research recommendations",
     "section": "",
-    "text": "4.1 Risks to meeting management objectives\nxxx",
+    "text": "5.1 Risks to meeting management objectives\nxxx",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research recommendations</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research recommendations</span>"
     ]
   },
   {
     "objectID": "content/recommendations.html#fishery-dependent-and-fishery-independent-data-sources",
     "href": "content/recommendations.html#fishery-dependent-and-fishery-independent-data-sources",
-    "title": "4  Research recommendations",
-    "section": "4.2 Fishery-dependent and fishery-independent data sources",
-    "text": "4.2 Fishery-dependent and fishery-independent data sources\nxxx",
+    "title": "5  Research recommendations",
+    "section": "5.2 Fishery-dependent and fishery-independent data sources",
+    "text": "5.2 Fishery-dependent and fishery-independent data sources\nxxx",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research recommendations</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research recommendations</span>"
     ]
   },
   {
     "objectID": "content/recommendations.html#human-dimensions",
     "href": "content/recommendations.html#human-dimensions",
-    "title": "4  Research recommendations",
-    "section": "4.3 Human dimensions",
-    "text": "4.3 Human dimensions\nxxx",
+    "title": "5  Research recommendations",
+    "section": "5.3 Human dimensions",
+    "text": "5.3 Human dimensions\nxxx",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Research recommendations</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research recommendations</span>"
     ]
   },
   {
     "objectID": "content/acknowledgements.html",
     "href": "content/acknowledgements.html",
-    "title": "5  Acknowledgments",
+    "title": "6  Acknowledgments",
     "section": "",
-    "text": "5.1 Contributions\nxx",
+    "text": "6.1 Contributions\nxx",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Acknowledgments</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Acknowledgments</span>"
     ]
   },
   {
     "objectID": "content/acknowledgements.html#resources",
     "href": "content/acknowledgements.html#resources",
-    "title": "5  Acknowledgments",
-    "section": "5.2 Resources",
-    "text": "5.2 Resources\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
+    "title": "6  Acknowledgments",
+    "section": "6.2 Resources",
+    "text": "6.2 Resources\nThis repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Acknowledgments</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Acknowledgments</span>"
     ]
   },
   {
     "objectID": "content/contributors.html",
     "href": "content/contributors.html",
-    "title": "6  Contributors",
+    "title": "7  Contributors",
     "section": "",
-    "text": "6.1 Editors\nMandy Karnauskas, Carissa Gervasi, xxx",
+    "text": "7.1 Editors\nMandy Karnauskas, Carissa Gervasi, xxx",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Contributors</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Contributors</span>"
     ]
   },
   {
     "objectID": "content/contributors.html#contributors",
     "href": "content/contributors.html#contributors",
-    "title": "6  Contributors",
-    "section": "6.2 Contributors",
-    "text": "6.2 Contributors\nxxx",
+    "title": "7  Contributors",
+    "section": "7.2 Contributors",
+    "text": "7.2 Contributors\nxxx",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Contributors</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Contributors</span>"
     ]
   }
 ]
