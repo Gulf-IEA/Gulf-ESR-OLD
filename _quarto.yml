@@ -3,10 +3,10 @@ project:
 
 book: 
   page-navigation: true
-  title: "Caribbean Ecosystem Status Report" 
+  title: "Gulf of America Ecosystem Status Report" 
   date: last-modified
-  site-url: "https://gulf-iea.github.io/Caribbean-ESR-2" 
-  repo-url: "https://github.com/Gulf-IEA/Caribbean-ESR-2"
+  site-url: "https://gulf-iea.github.io/Gulf-ESR" 
+  repo-url: "https://github.com/Gulf-IEA/Gulf-ESR"
   repo-actions: [edit, source, issue]
   favicon: assets/favicon.ico
   downloads: [pdf, docx]
