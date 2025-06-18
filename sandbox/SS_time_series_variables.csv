@@ -1,0 +1,33 @@
+Variable Name,Location,Description
+Yr,mod$timeseries,Year of the time step (includes forecast years)
+Era,mod$timeseries,"Phase of model (eg, 'FORE' for forecast)"
+SpawnBio,mod$timeseries,Spawning biomass — weight of all mature fish
+SmryBio,mod$timeseries,"Summary biomass — typically age-1+ biomass, representing available population"
+Bio_smry,mod$timeseries,"Same as SmryBio, sometimes appears with alternate naming"
+Recruit_0,mod$timeseries,Virgin recruitment — recruitment expected without fishing
+Recruit,mod$timeseries,Estimated number of age-0 recruits in each year
+Bratio,mod$timeseries,"Biomass relative to target (eg, B/BMSY or B/B0)"
+F,mod$timeseries,Fishing mortality rate (instantaneous rate)
+TotCat,mod$timeseries,Total catch biomass across all fleets/sectors
+Ret_Bio,mod$timeseries,"Retained catch biomass (what’s kept, not discarded)"
+TotBio,mod$timeseries,Total biomass in the population (includes unfished ages)
+ExploitB,mod$timeseries,Biomass vulnerable to fishing (selectivity-weighted)
+Dead_Bio,mod$timeseries,Total biomass killed by fishing (retained + discard mortality)
+Selex*,mod$timeseries,Selectivity-at-age per fleet (sometimes expanded by age and fleet)
+Yr,mod$recruit,Year of recruitment
+dev,mod$recruit,Log-scale recruitment deviation from expected mean
+dev_se,mod$recruit,Standard error of recdevs
+Era,mod$recruit,"Time block (eg, early, main, forecast)"
+pred_recruit,mod$recruit,Model-expected recruitment for each year
+recruit,mod$recruit,Estimated recruitment (same as in timeseries)
+Yr,mod$catch,Year of catch
+Fleet,mod$catch,Fleet name/ID
+Obs,mod$catch,Observed catch (input data)
+Exp,mod$catch,Expected catch (model prediction)
+SE,mod$catch,Standard error of observed catch
+Yr,mod$sprseries,Year
+SPR,mod$sprseries,Spawning potential ratio: ratio of spawning biomass per recruit relative to unfished condition
+rel.F,mod$sprseries,Fishing mortality relative to F_MSY
+YPR,mod$sprseries,Yield per recruit — efficiency of yield for each recruit
+numbers_at_age,mod$numbers_at_age,Numbers at age by year — useful for age structure analyses
+sex_ratio,mod$sex_ratio,Proportion of males/females — if applicable in sex-structured models
