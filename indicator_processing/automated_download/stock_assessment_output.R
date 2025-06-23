@@ -15,7 +15,7 @@ library(ggplot2)
 ####### PULL VARIABLES FOR A SINGLE ASSESSMENT ########
 
 # Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop.
-setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Scamp Grouper/SEDAR68OA/")
+setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR52/")
 direct = getwd()
 base=SS_output(dir = direct, printstats = T, covar=T, cormax=0.70, forecast=F)
 base$startyr
@@ -40,6 +40,24 @@ recdev = base$recruit[,c("Yr","era","dev")]
 recdev = recdev %>% 
   filter(era != "Fore") %>% 
   filter(Yr >= 2000)
+
+
+# RECRUITMENT DEVIATIONS with error
+# log-scale recruitment deviations from the expected mean (with standard error)
+summary(base$parameters)
+View(base$parameters)
+temp = base$parameters
+temp2 = temp[grep("RecrDev", temp$Label), , drop = FALSE]
+recdev2 = temp2[,c("Label","Value","Parm_StDev")]
+recdev3 = as.data.frame(separate_wider_delim(recdev2, cols = Label, delim = "_", names = c("Era", "label", "Yr")))
+
+recdev3 = recdev3 %>% 
+  filter(Era == "Main") %>%
+  filter(Yr >= 2000)
+
+recdev3$upper = recdev3$Value + recdev3$Parm_StDev
+recdev3$lower = recdev3$Value - recdev3$Parm_StDev
+
 
 #LANDINGS/DISCARDS RATIO
 # retained biomass and total catch are listed by fleet, so need to sum across fleets
@@ -76,11 +94,12 @@ land_disc$ld_ratio_rec = land_disc$Ret_Bio_rec / (land_disc$discards_rec)
 
 land_disc = land_disc %>% 
   filter(Era != "FORE") %>% 
+  filter(Era != "VIRG") %>% 
   filter(Yr >= 2000)
 
 # QUICK PLOTS
 
-ggplot(biomass, aes(x=Yr, y=Bio_smry)) +
+a = ggplot(biomass, aes(x=Yr, y=Bio_smry)) +
   geom_line() +
   xlab("Year") +
   ylab("Biomass (metric tons)") +
@@ -88,9 +107,10 @@ ggplot(biomass, aes(x=Yr, y=Bio_smry)) +
   ggtitle("Scamp Grouper SEDAR 68")
 
 
-ggplot(recdev, aes(x=Yr, y=dev)) +
+b = ggplot(recdev3, aes(x=as.numeric(Yr), y=Value)) +
   geom_point() +
   geom_line() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
   xlab("Year") +
   ylab("log recruitment deviations") +
   theme_classic() +
@@ -99,24 +119,42 @@ ggplot(recdev, aes(x=Yr, y=dev)) +
 
 
 
-ggplot(land_disc, aes(x=Yr, y=Ret_Bio)) +
+#Plot the landings and discards by fleet/area
+head(land_disc)
+retained = land_disc[,c(1,3,4,5)]
+discards = land_disc[,c(1,9,11,13)]
+ratio = land_disc[,c(1,10,12,14)]
+retained_long = retained %>% 
+  pivot_longer(-Yr, names_to = "Fleet", values_to = "Retained_biomass")
+discards_long = discards %>% 
+  pivot_longer(-Yr, names_to = "Fleet", values_to = "Discarded_biomass")
+ratio_long = ratio %>% 
+  pivot_longer(-Yr, names_to = "Fleet", values_to = "Ratio")
+
+
+
+c = ggplot(retained_long, aes(x=Yr, y=Retained_biomass, group=Fleet, col=Fleet)) +
   geom_line() +
   xlab("Year") +
   ylab("Retained biomass (metric tons)") +
   theme_classic() +
   ggtitle("Scamp Grouper SEDAR 68")
 
-ggplot(land_disc, aes(x=Yr, y=discards)) +
+d = ggplot(discards_long, aes(x=Yr, y=Discarded_biomass, group=Fleet, col=Fleet)) +
   geom_line() +
   xlab("Year") +
   ylab("Discarded biomass (metric tons)") +
   theme_classic() +
   ggtitle("Scamp Grouper SEDAR 68")
 
-ggplot(land_disc, aes(x=Yr, y=ld_ratio)) +
+e = ggplot(ratio_long, aes(x=Yr, y=Ratio, group=Fleet, col=Fleet)) +
   geom_line() +
   xlab("Year") +
   ylab("Landings:discards ratio") +
   theme_classic() +
   ggtitle("Scamp Grouper SEDAR 68")
+
+
+
+
 
