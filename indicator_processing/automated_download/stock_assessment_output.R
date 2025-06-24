@@ -6,7 +6,9 @@
 require(r4ss)
 require(dplyr)
 require(tidyr)
-library(ggplot2)
+require(ggplot2)
+require(purrr)
+require(stringr)
 
 
 # Things to add: separate biomass and ratios by area (if applicable) and separated by comm and rec fleets. Limit the time series to 2000 onward. Eventually we want to plot biomass trajectories against the ACL and landings. Also check if ratio differs drastically numbers vs. biomass.
@@ -14,7 +16,16 @@ library(ggplot2)
 
 ####### PULL VARIABLES FOR A SINGLE ASSESSMENT ########
 
-# Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop.
+# files that don't work
+# Red grouper SEDAR 88
+# Red snapper SEDAR 74
+# Spanish Mackerel SEDAR 81
+# Yellowedge grouper SEDAR 85 & 22
+
+# Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop. For shared folders you need to access them from the shortcut targets folder in the G drive.
+Species = "Red Snapper"
+Assessment = "SEDAR52"
+
 setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR52/")
 direct = getwd()
 base=SS_output(dir = direct, printstats = T, covar=T, cormax=0.70, forecast=F)
@@ -29,17 +40,85 @@ summary(base$recruit)
 
 # BIOMASS 
 # Age-1+ biomass over time
-biomass = base$timeseries[,c("Yr","Era","Bio_smry")]
+biomass = base$timeseries[,c("Area","Yr","Era","Bio_smry")]
 biomass = biomass %>% 
   filter(Era != "FORE") %>% 
   filter(Yr >=2000)
 
+a = ggplot(biomass, aes(x=Yr, y=Bio_smry, Group = as.factor(Area), col = as.factor(Area))) +
+  geom_line() +
+  xlab("Year") +
+  ylab("Biomass (metric tons)") +
+  theme_classic() +
+  ggtitle(paste0(Species, " ", Assessment))
+
+output_folder = "~/My Github Projects/Gulf-ESR/indicator_data/stock assessment output plots and data"
+output_file = paste0(Species, "_", Assessment, "_biomass.png")
+ggsave(filename = file.path(output_folder, output_file), plot = a,
+       width = 8, height = 5, dpi = 300)
+
+biomass1 = biomass %>% 
+  filter(Area == 1)
+biomass2 = biomass %>% 
+  filter(Area == 2)
+biomass1 = as.data.frame(biomass1[,2:4])
+biomass2 = as.data.frame(biomass2[,2:4])
+
+saveRDS(biomass1, file = file.path(output_folder, paste0(Species, "_Area1_", Assessment, "_biomass.rds")))
+saveRDS(biomass2, file = file.path(output_folder, paste0(Species, "_Area2_", Assessment, "_biomass.rds")))
+
+
+### Combine all the biomass datasets into one data frame ###
+
+# Set the folder where .rds files are stored
+input_folder = "~/My Github Projects/Gulf-ESR/indicator_data/stock assessment output plots and data"
+
+# List all RDS files that match the pattern *_biomass.rds
+files <- list.files(input_folder, pattern = "_biomass\\.rds$", full.names = TRUE)
+
+#check all the files
+for (file in files) {
+  dat <- readRDS(file)
+  print(basename(file))
+  print(names(dat))
+}
+
+# Read and combine
+biomass_df_list <- map(files, function(file) {
+  # Read the .rds file
+  dat <- readRDS(file)
+  
+  # Extract species_assessment from filename
+  filename <- basename(file)
+  name <- str_remove(filename, "_biomass\\.rds$")  # remove suffix
+  
+  # Keep only Yr and Bio_smry, rename Bio_smry to species_assessment name
+  dat %>%
+    select(Yr, Bio_smry) %>%
+    rename(!!name := Bio_smry)
+})
+
+# Merge all data frames by Yr
+# Reduce joins all the data frames by Yr column
+combined_biomass <- reduce(biomass_df_list, full_join, by = "Yr")
+
+# Arrange by year
+combined_biomass <- combined_biomass %>% arrange(Yr)
+
+saveRDS(combined_biomass, file = file.path(input_folder, "combined_biomass_trends.rds"))
+
+
+
+
+
+
 # RECRUITMENT DEVIATIONS
 # log-scale recruitment deviations from the expected mean
-recdev = base$recruit[,c("Yr","era","dev")]
-recdev = recdev %>% 
-  filter(era != "Fore") %>% 
-  filter(Yr >= 2000)
+#recdev = base$recruit[,c("Yr","era","dev")]
+#recdev = recdev %>% 
+#  filter(era != "Fore") %>% 
+#  filter(era != "Forecast") %>%
+#  filter(Yr >= 2000)
 
 
 # RECRUITMENT DEVIATIONS with error
@@ -67,8 +146,8 @@ ts <- base$timeseries
 
 # Identify all retained biomass columns (Ret_Bio)
 retbio_cols <- grep("^retain\\(B\\):", names(ts), value = TRUE)
-comm_retbio_cols = retbio_cols[1:2]
-rec_retbio_cols = retbio_cols[3:4]
+comm_retbio_cols = retbio_cols[1]
+rec_retbio_cols = retbio_cols[2]
 ts$Ret_Bio <- rowSums(ts[, retbio_cols], na.rm = TRUE)
 ts$Ret_Bio_comm <- rowSums(ts[, comm_retbio_cols], na.rm = TRUE)
 ts$Ret_Bio_rec <- rowSums(ts[, rec_retbio_cols], na.rm = TRUE)
