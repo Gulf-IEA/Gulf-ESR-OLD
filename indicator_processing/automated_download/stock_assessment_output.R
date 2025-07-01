@@ -24,9 +24,9 @@ require(stringr)
 
 # Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop. For shared folders you need to access them from the shortcut targets folder in the G drive.
 Species = "Red Snapper"
-Assessment = "SEDAR52"
+Assessment = "SEDAR74"
 
-setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR52/")
+setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR74/")
 direct = getwd()
 base=SS_output(dir = direct, printstats = T, covar=T, cormax=0.70, forecast=F)
 base$startyr
