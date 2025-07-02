@@ -3,6 +3,11 @@ description: Use this issue template if you have a lead on potential indicators 
 title: "[Indicator Lead]: "
 labels: ["indicator_lead"]
 body:
+<<<<<<< HEAD
+=======
+
+#Indicator Name
+>>>>>>> 492fdfdcab0f755ff8a363ee4a6fc96864b67077
   - type: input
     id: indicator_name
     attributes:
