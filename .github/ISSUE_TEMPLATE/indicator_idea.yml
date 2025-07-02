@@ -9,8 +9,7 @@ body:
         label: Potential Indicator Name
         description: What is the name of this potential indicator to include in the Gulf ESR?
         placeholder: "Ex: TEST"
-    validation:
-        requried: true
+
 
 
 #Your Name
