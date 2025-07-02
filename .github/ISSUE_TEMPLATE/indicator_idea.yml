@@ -5,72 +5,72 @@ labels: ["indicator_lead"]
 body:
 
 #Indicator Name
-- type: input
-  id: indicator_name
-  attributes:
-      label: Potential Indicator Name
-      description: What is the name of this potential indicator to include in the Gulf ESR?
-      placeholder: "Ex: TEST"
-  validation:
-      requried: true
+  - type: input
+    id: indicator_name
+    attributes:
+        label: Potential Indicator Name
+        description: What is the name of this potential indicator to include in the Gulf ESR?
+        placeholder: "Ex: TEST"
+    validation:
+        requried: true
 
 
 #Your Name
-- type: input
-  id: contributor_name
-  attributes:
-      label: Your Name
-      placeholder: Jane Doe
+  - type: input
+    id: contributor_name
+    attributes:
+        label: Your Name
+        placeholder: Jane Doe
 
 
 
 # Indicator Description
-- type: textarea
-  id: indicator_description
-  attributes:
-      label: Describe the indicator idea
+  - type: textarea
+    id: indicator_description
+    attributes:
+        label: Describe the indicator idea
       
 
 
 # Potential PoC
-- type: input
-  id: point_of_contact
-  attributes:
-      label: Indicator Point of Contact
-      description: Who should we reach out to regarding information for this potential indicator.
+  - type: input
+    id: point_of_contact
+    attributes:
+        label: Indicator Point of Contact
+        description: Who should we reach out to regarding information for this potential indicator.
 
 
 #Potential Data Source
-- type: textarea
-  id: data_source
-  attributes:
-      label: Potential Data Sources
-      description: What data are out there to support this potential indicator?
+  - type: textarea
+    id: data_source
+    attributes:
+        label: Potential Data Sources
+        description: What data are out there to support this potential indicator?
 
 
 
 # File Upload for Data Source
-- type: textarea
-  id: file_upload
-  attributes:
-      label: Data Source Upload
-      description: Do you have a file containing data you would like to upload?
+  - type: textarea
+    id: file_upload
+    attributes:
+        label: Data Source Upload
+        description: Do you have a file containing data you would like to upload?
 
 
 
 # Open Ended Space
-- type: textarea
-  id: additional_info
-  attributes:
-      label: Any additional details?
-      description: Please use this area to record any other information or thoughts you have concerning this indicator idea.
+  - type: textarea
+    id: additional_info
+    attributes:
+        label: Any additional details?
+        description: Please use this area to record any other information or thoughts you have concerning this indicator idea.
 
 
 
 # Code Chunk (API pull?)
-- type: textarea
-  id: code_chunk
-  attributes:
-      label: Associated Code
-      description: Please use this area to paste any code you may have regarding this indicator idea.
-      placeholder: Do you have code to pull the data source from an API? Or from a package?
+  - type: textarea
+    id: code_chunk
+    attributes:
+        label: Associated Code
+        description: Please use this area to paste any code you may have regarding this indicator idea.
+        placeholder: Do you have code to pull the data source from an API? Or from a package?
