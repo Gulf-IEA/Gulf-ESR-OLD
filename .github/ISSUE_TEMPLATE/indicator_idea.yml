@@ -63,8 +63,7 @@ body:
   id: additional_info
   attributes:
       label: Any additional details?
-      description: Please use this area to record any other information or thoughts you have concerning
-      this indicator idea.
+      description: Please use this area to record any other information or thoughts you have concerning this indicator idea.
 
 
 
