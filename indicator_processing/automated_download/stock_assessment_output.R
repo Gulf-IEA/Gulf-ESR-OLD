@@ -16,11 +16,24 @@ require(stringr)
 
 ####### PULL VARIABLES FOR A SINGLE ASSESSMENT ########
 
+#all assessments:
+# Cobia 28, 28U
+# Gag Grouper 33U, 72
+# Gray Snapper 51, 75
+# Gray Triggerfish 43
+# Greater Amberjack 33, 33U, 70
+# Hogfish 37, 37U
+# King Mackerel 38, 38U
+# Mutton Snapper 79
+# Red Grouper 42, 61, 88 
+# Red Snapper 52, 74
+# Scamp Grouper 68OA
+# Spanish Mackerel 28, 81
+# Vermillion Snapper 45, 67
+# Yellowedge Grouper 22, 85
+# Yellowtail Snapper 96
+
 # files that don't work
-# Red grouper SEDAR 88
-# Red snapper SEDAR 74
-# Spanish Mackerel SEDAR 81
-# Yellowedge grouper SEDAR 85 & 22
 
 # Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop. For shared folders you need to access them from the shortcut targets folder in the G drive.
 Species = "Red Snapper"
@@ -52,7 +65,7 @@ a = ggplot(biomass, aes(x=Yr, y=Bio_smry, Group = as.factor(Area), col = as.fact
   theme_classic() +
   ggtitle(paste0(Species, " ", Assessment))
 
-output_folder = "~/My Github Projects/Gulf-ESR/indicator_data/stock assessment output plots and data"
+output_folder = "~/My Github Projects/Gulf-ESR-OLD/indicator_data/stock assessment output plots and data"
 output_file = paste0(Species, "_", Assessment, "_biomass.png")
 ggsave(filename = file.path(output_folder, output_file), plot = a,
        width = 8, height = 5, dpi = 300)
