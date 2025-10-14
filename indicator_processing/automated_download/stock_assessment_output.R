@@ -1,6 +1,6 @@
 # Output data from Gulf stock synthesis output files. The files are hosted on google drive by the stock assessment team. We will use r4ss to pull the content from the stock synthesis model outputs. 
 
-# Last updated by Carissa Gervasi - 6/18/25
+# Last updated by Carissa Gervasi - 10/14/25
 
 #load packages
 require(r4ss)
@@ -36,12 +36,12 @@ require(stringr)
 # files that don't work
 
 # Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop. For shared folders you need to access them from the shortcut targets folder in the G drive.
-Species = "Red Snapper"
-Assessment = "SEDAR52"
+Species = "Hogfish"
+Assessment = "SEDAR37"
 
-setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR52/")
+setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Hogfish/SEDAR37")
 direct = getwd()
-base=SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = FALSE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE)
+base=SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = TRUE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE, compfile = "none", covarfile = "none")
 base$startyr
 base$endyr
 

@@ -40,10 +40,14 @@ process_SS_assessments <- function(
     tryCatch({
       base <- SS_output(
         dir = dir,
-        printstats = TRUE,
-        covar = TRUE,
-        cormax = 0.70,
-        forecast = FALSE
+        dir.mcmc = NULL, 
+        repfile = "Report.sso", 
+        forecast = FALSE, 
+        warn = FALSE, 
+        covar = FALSE, 
+        readwt = FALSE, 
+        verbose = TRUE, 
+        NoCompOK = TRUE
       )
       
       # Extract the last two parts of the directory path
