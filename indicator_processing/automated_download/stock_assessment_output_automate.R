@@ -23,10 +23,8 @@ process_SS_assessments() #only need to run this if there are new/updated assessm
 SS_outputs_all = readRDS("indicator_data/stock assessment output plots and data V2/SS_outputs_all.rds")
 
 
-#View the files of interest. We will run through each assessment.
 
-
-######## BIOMASS #########
+######## BIOMASS (automated) #########
 
 # Define the output folder outside the loop
 output_folder <- "~/My Github Projects/Gulf-ESR-OLD/indicator_data/stock assessment output plots and data V3"
@@ -39,8 +37,6 @@ for (name in model_names) {
   
   # Set the current model as 'base'
   base <- SS_outputs_all[[name]]
-  
-  # --- Existing Code Block Starts Here ---
   
   dir_path <- base$inputs$dir
   path_elements <- unlist(strsplit(dir_path, split = "/|\\\\"))
@@ -74,8 +70,7 @@ for (name in model_names) {
           axis.title = element_text(size = 14),
           axis.text = element_text(size = 12),
           axis.title.y = element_text(vjust = 2),
-          axis.title.x = element_text(vjust = -1),
-          legend.title = element_blank()
+          axis.title.x = element_text(vjust = -1)
         ) +
         scale_x_continuous(breaks = unique(biomass$Yr)) +
         scale_color_discrete(name = "Area")
@@ -83,7 +78,7 @@ for (name in model_names) {
       # Save the plot
       output_file <- paste0(Species, "_", Assessment, "_biomass.png")
       ggsave(filename = file.path(output_folder, output_file), plot = a,
-             width = 8, height = 5, dpi = 300)
+             width = 10, height = 6, dpi = 300)
       
       # --- Code to save separate RDS files for each area ---
       unique_areas <- unique(biomass$Area)
@@ -114,84 +109,10 @@ for (name in model_names) {
 
 
 
-
-
-
-
-
-
-base = SS_outputs_all$Cobia_SEDAR28
-
-dir_path = base$inputs$dir
-path_elements <- unlist(strsplit(dir_path, split = "/|\\\\")) 
-path_elements <- path_elements[path_elements != ""]
-# The species name is the second to last element
-Species <- path_elements[length(path_elements) - 1]
-# The assessment name is the last element
-Assessment <- path_elements[length(path_elements)]
-
-head(base$timeseries)
-summary(base$timeseries)
-head(base$recruit)
-summary(base$recruit)
-
-
-
-# Age-1+ biomass over time (or other ages)
-biomass = base$timeseries[,c("Area","Yr","Era","Bio_smry")]
-biomass = biomass %>% 
-  filter(Era != "FORE") %>% 
-  filter(Yr >=2000) %>% 
-  mutate(Bio_mil_lbs = (Bio_smry * 2204.62)/1000000)
-
-
-a = ggplot(biomass, aes(x=Yr, y=Bio_mil_lbs, Group = as.factor(Area), col = as.factor(Area))) +
-  geom_line() +
-  xlab("Year") +
-  ylab("Biomass (million pounds)") +
-  theme_classic() +
-  ggtitle(paste0(Species, " ", Assessment)) +
-  theme(
-    axis.title = element_text(size = 14),        # Increase axis title text size
-    axis.text = element_text(size = 12),         # Increase axis tick label text size
-    axis.title.y = element_text(vjust = 2),      # Move y-axis label away
-    axis.title.x = element_text(vjust = -1)     # Move x-axis label away
-  ) +
-  geom_point(size = 2) +                         # Add points to the plot, adjust size as needed
-  geom_line(linewidth = 1.2) +                        # Increase the line width
-  scale_x_continuous(breaks = unique(biomass$Yr)) +
-  scale_color_discrete(name = "Area")
-
-output_folder = "~/My Github Projects/Gulf-ESR-OLD/indicator_data/stock assessment output plots and data"
-output_file = paste0(Species, "_", Assessment, "_biomass.png")
-ggsave(filename = file.path(output_folder, output_file), plot = a,
-       width = 8, height = 5, dpi = 300)
-
-
-# Get the unique area numbers
-unique_areas <- unique(biomass$Area)
-
-# Loop through each area
-for (area in unique_areas) {
-  
-  # Filter the data for the current area
-  area_data <- biomass %>%
-    filter(Area == area) %>%
-    select(Yr, Bio_smry, Bio_mil_lbs, Area) %>%
-    as.data.frame()
-  
-  # Create the file name for the current area
-  file_name <- paste0(Species, "_Area", area, "_", Assessment, "_biomass.rds")
-  
-  # Save the RDS file to the output folder
-  saveRDS(area_data, file = file.path(output_folder, file_name))
-}
-
-
 ### Combine all the biomass datasets into one data frame ###
 
 # Set the folder where .rds files are stored
-input_folder = "~/My Github Projects/Gulf-ESR/indicator_data/stock assessment output plots and data"
+input_folder = "~/My Github Projects/Gulf-ESR-OLD/indicator_data/stock assessment output plots and data V3"
 
 # List all RDS files that match the pattern *_biomass.rds
 files <- list.files(input_folder, pattern = "_biomass\\.rds$", full.names = TRUE)
@@ -212,10 +133,10 @@ biomass_df_list <- map(files, function(file) {
   filename <- basename(file)
   name <- str_remove(filename, "_biomass\\.rds$")  # remove suffix
   
-  # Keep only Yr and Bio_smry, rename Bio_smry to species_assessment name
+  # Keep only Yr and Bio_mil_lbs, rename Bio_mil_lbs to species_assessment name
   dat %>%
-    select(Yr, Bio_smry) %>%
-    rename(!!name := Bio_smry)
+    select(Yr, Bio_mil_lbs) %>%
+    rename(!!name := Bio_mil_lbs)
 })
 
 # Merge all data frames by Yr
