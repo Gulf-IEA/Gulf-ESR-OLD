@@ -1,0 +1,211 @@
+Assessment,FleetName,Description
+Cobia_SEDAR28,Com_Combined_1,Commercial Combined
+Cobia_SEDAR28,Recreational_Combined_2,Recreational Combined
+Cobia_SEDAR28,Shrimp_Bycatch_3,Shrimp Bycatch
+Cobia_SEDAR28,MRFSS_4,Marine Recreational Fishery Statistics Survey
+Cobia_SEDAR28U,Com_Combined_1,Commercial Combined
+Cobia_SEDAR28U,Recreational_Combined_2,Recreational Combined
+Cobia_SEDAR28U,Shrimp_Bycatch_3,Shrimp Bycatch
+Cobia_SEDAR28U,MRFSS_4,Marine Recreational Fishery Statistics Survey
+Gag Grouper_SEDAR33U,Com_HL_1,Commercial Handline
+Gag Grouper_SEDAR33U,Com_LL_2,Commercial Longline
+Gag Grouper_SEDAR33U,Headboat_3,Headboat
+Gag Grouper_SEDAR33U,CHARTER_4,Charter
+Gag Grouper_SEDAR33U,PRIVATE_5,Private Recreational
+Gag Grouper_SEDAR33U,REDTIDE_6,Red Tide
+Gag Grouper_SEDAR33U,MRFSS_7,Marine Recreational Fishery Statistics Survey
+Gag Grouper_SEDAR33U,Age0_8,Age 0
+Gag Grouper_SEDAR33U,SEAMAP_Video_9,SEAMAP Video Survey
+Gag Grouper_SEDAR33U,PC_Video_10,Panama City Video Survey
+Gag Grouper_SEDAR33U,CHARTER_SURVEY_11,Charter Survey
+Gag Grouper_SEDAR72,Com_VL_OTH_1,Commercial Vertical Line/Other
+Gag Grouper_SEDAR72,Com_LL_2,Commercial Longline
+Gag Grouper_SEDAR72,Rec_HBT_3,Recreational Headboat
+Gag Grouper_SEDAR72,Rec_CBT_4,Recreational Charter Boat
+Gag Grouper_SEDAR72,Rec_PRIV_SH_5,Recreational Private/Shore
+Gag Grouper_SEDAR72,Srv_RT_6,Survey Red Tide
+Gag Grouper_SEDAR72,Srv_CBT_PRIV_7,Survey Charter Boat/Private
+Gag Grouper_SEDAR72,Srv_AGE0_8,Survey Age 0
+Gag Grouper_SEDAR72,Srv_SEAMAP_VIDEO_9,Survey SEAMAP Video
+Gag Grouper_SEDAR72,Srv_PC_VIDEO_10,Survey Panama City Video
+Gray Snapper_SEDAR51,CHL_MC_1,Commercial Handline/Mixed Catch
+Gray Snapper_SEDAR51,CHL_nMC_2,Commercial Handline/No Mixed Catch
+Gray Snapper_SEDAR51,CM_LL_3,Commercial Longline
+Gray Snapper_SEDAR51,REC_PR_4,Recreational Private
+Gray Snapper_SEDAR51,Rec_Shore_5,Recreational Shore
+Gray Snapper_SEDAR51,Rec_HB_CBT6,Recreational Headboat/Charter Boat
+Gray Snapper_SEDAR51,RCHL_7,Recreational Commercial Handline
+Gray Snapper_SEDAR51,MRFSS_Private_8,Marine Recreational Fishery Statistics Survey Private
+Gray Snapper_SEDAR51,MRFSS_Shore_9,Marine Recreational Fishery Statistics Survey Shore
+Gray Snapper_SEDAR51,FWRI_Age0_10,FWRI Age 0
+Gray Snapper_SEDAR51,FWRI_Age1_11,FWRI Age 1
+Gray Snapper_SEDAR51,SEAMAP_Trawl_12,SEAMAP Trawl Survey
+Gray Snapper_SEDAR51,NMFS_FWRI_Video_13,NMFS/FWRI Video Survey
+Gray Snapper_SEDAR51,Visual_Survey_14,Visual Survey
+Gray Snapper_SEDAR75,Com_VL_1,Commercial Vertical Line
+Gray Snapper_SEDAR75,Com_LL_2,Commercial Longline
+Gray Snapper_SEDAR75,Com_NT_3,Commercial Net
+Gray Snapper_SEDAR75,Rec_PR_4,Recreational Private
+Gray Snapper_SEDAR75,Rec_Shore_5,Recreational Shore
+Gray Snapper_SEDAR75,Rec_HB_CBT_6,Recreational Headboat/Charter Boat
+Gray Snapper_SEDAR75,Index_Private_7,Index Private
+Gray Snapper_SEDAR75,Index_Shore_8,Index Shore
+Gray Snapper_SEDAR75,FWRI_Age0_9,FWRI Age 0
+Gray Snapper_SEDAR75,FWRI_Age1_10,FWRI Age 1
+Gray Snapper_SEDAR75,SEAMAP_Trawl_11,SEAMAP Trawl Survey
+Gray Snapper_SEDAR75,Combo_Video_12,Combined Video Survey
+Gray Snapper_SEDAR75,Visual_Survey_13,Visual Survey
+Gray Triggerfish_SEDAR43,Rec_E_1,Recreational East
+Gray Triggerfish_SEDAR43,Rec_W_2,Recreational West
+Gray Triggerfish_SEDAR43,Com_E_3,Commercial East
+Gray Triggerfish_SEDAR43,Com_W_4,Commercial West
+Gray Triggerfish_SEDAR43,Shrimp_Eff_5,Shrimp Effort
+Gray Triggerfish_SEDAR43,HB_W_6,Headboat West
+Gray Triggerfish_SEDAR43,LarvalGW_DN_7,Larval Gulfwide/Deepwater Net
+Gray Triggerfish_SEDAR43,Trawl_GW_8,Trawl Gulfwide
+Gray Triggerfish_SEDAR43,Video_GW_9,Video Gulfwide
+Greater Amberjack_SEDAR33,Com_HL_1,Commercial Handline
+Greater Amberjack_SEDAR33,Com_LL_2,Commercial Longline
+Greater Amberjack_SEDAR33,REC_3,Recreational
+Greater Amberjack_SEDAR33,Headboat_4,Headboat
+Greater Amberjack_SEDAR33,MRFSS_5,Marine Recreational Fishery Statistics Survey
+Greater Amberjack_SEDAR33,SEAMAP_Video_Survey_6,SEAMAP Video Survey
+Greater Amberjack_SEDAR33,PANAMA_CITY_TRAP_VIDEO_SURVEY_7,Panama City Trap Video Survey
+Greater Amberjack_SEDAR33U,Com_HL_1,Commercial Handline
+Greater Amberjack_SEDAR33U,Com_LL_2,Commercial Longline
+Greater Amberjack_SEDAR33U,REC_3,Recreational
+Greater Amberjack_SEDAR33U,Headboat_4,Headboat
+Greater Amberjack_SEDAR33U,MRFSS_5,Marine Recreational Fishery Statistics Survey
+Greater Amberjack_SEDAR33U,SEAMAP_Video_Survey_6,SEAMAP Video Survey
+Greater Amberjack_SEDAR33U,PANAMA_CITY_TRAP_VIDEO_SURVEY_7,Panama City Trap Video Survey
+Greater Amberjack_SEDAR70,Com_HL_1,Commercial Handline
+Greater Amberjack_SEDAR70,Com_LL_2,Commercial Longline
+Greater Amberjack_SEDAR70,REC_3,Recreational
+Greater Amberjack_SEDAR70,Headboat_4,Headboat
+Greater Amberjack_SEDAR70,MRFSS_5,Marine Recreational Fishery Statistics Survey
+Greater Amberjack_SEDAR70,JOINT_Video_Survey_6,Joint Video Survey
+King Mackerel_SEDAR38,1_HL,Handline
+King Mackerel_SEDAR38,2_GN,Gillnet
+King Mackerel_SEDAR38,3_Shrimp,Shrimp
+King Mackerel_SEDAR38,4_HB,Headboat
+King Mackerel_SEDAR38,5_CP,Charter/Private
+King Mackerel_SEDAR38,6_SeamapTwl,SEAMAP Trawl
+King Mackerel_SEDAR38,7_SeamapPlank,SEAMAP Plankton
+King Mackerel_SEDAR38U,1_HL,Handline
+King Mackerel_SEDAR38U,2_GN,Gillnet
+King Mackerel_SEDAR38U,3_Shrimp,Shrimp
+King Mackerel_SEDAR38U,4_HB,Headboat
+King Mackerel_SEDAR38U,5_CP,Charter/Private
+King Mackerel_SEDAR38U,6_SeamapTwl,SEAMAP Trawl
+King Mackerel_SEDAR38U,7_SeamapPlank,SEAMAP Plankton
+Red Grouper_SEDAR42,commHL,Commercial Handline
+Red Grouper_SEDAR42,commLL,Commercial Longline
+Red Grouper_SEDAR42,commTrap,Commercial Trap
+Red Grouper_SEDAR42,Rec,Recreational
+Red Grouper_SEDAR42,RedTide,Red Tide
+Red Grouper_SEDAR42,SEAMAP_Vid,SEAMAP Video Survey
+Red Grouper_SEDAR42,SEAMAP_GF,SEAMAP Grab Fishery
+Red Grouper_SEDAR42,NMFS_BLL,NMFS Bottom Longline
+Red Grouper_SEDAR42,CBT_PRSurv,Charter Boat/Private Survey
+Red Grouper_SEDAR61,commHL,Commercial Handline
+Red Grouper_SEDAR61,commLL,Commercial Longline
+Red Grouper_SEDAR61,commTrap,Commercial Trap
+Red Grouper_SEDAR61,Rec,Recreational
+Red Grouper_SEDAR61,RedTide,Red Tide
+Red Grouper_SEDAR61,SEAMAP_Vid,SEAMAP Video Survey
+Red Grouper_SEDAR61,SEAMAP_GF,SEAMAP Grab Fishery
+Red Grouper_SEDAR61,NMFS_BLL,NMFS Bottom Longline
+Red Grouper_SEDAR61,CBT_PRSurv,Charter Boat/Private Survey
+Red Grouper_SEDAR61,FWRI_RTD,FWRI Red Tide
+Red Snapper_SEDAR52,HL_E,Handline East
+Red Snapper_SEDAR52,HL_W,Handline West
+Red Snapper_SEDAR52,LL_E,Longline East
+Red Snapper_SEDAR52,LL_W,Longline West
+Red Snapper_SEDAR52,MRIP_E,MRIP East
+Red Snapper_SEDAR52,MRIP_W,MRIP West
+Red Snapper_SEDAR52,HBT_E,Headboat East
+Red Snapper_SEDAR52,HBT_W,Headboat West
+Red Snapper_SEDAR52,C_Clsd_E,Commercial Closed East
+Red Snapper_SEDAR52,C_Clsd_W,Commercial Closed West
+Red Snapper_SEDAR52,R_Clsd_E,Recreational Closed East
+Red Snapper_SEDAR52,R_Clsd_W,Recreational Closed West
+Red Snapper_SEDAR52,Shr_E,Shrimp East
+Red Snapper_SEDAR52,Shr_W,Shrimp West
+Red Snapper_SEDAR52,Video_E,Video Survey East
+Red Snapper_SEDAR52,Video_W,Video Survey West
+Red Snapper_SEDAR52,Larv_E,Larval East
+Red Snapper_SEDAR52,Larv_W,Larval West
+Red Snapper_SEDAR52,Sum_E,Summer Survey East
+Red Snapper_SEDAR52,Sum_W,Summer Survey West
+Red Snapper_SEDAR52,Fall_E,Fall Survey East
+Red Snapper_SEDAR52,Fall_W,Fall Survey West
+Red Snapper_SEDAR52,BLL_W,Bottom Longline West
+Red Snapper_SEDAR52,BLL_E,Bottom Longline East
+Red Snapper_SEDAR52,ROV_E,Remotely Operated Vehicle East
+Red Snapper_SEDAR52,MRIP_Index_E,MRIP Index East
+Red Snapper_SEDAR52,MRIP_Index_W,MRIP Index West
+Red Snapper_SEDAR52,HBT_Index_E,Headboat Index East
+Red Snapper_SEDAR52,HBT_Index_W,Headboat Index West
+Scamp Grouper_SEDAR68OA,ComVL,Commercial Vertical Line
+Scamp Grouper_SEDAR68OA,ComLL,Commercial Longline
+Scamp Grouper_SEDAR68OA,Charter_Private,Charter/Private
+Scamp Grouper_SEDAR68OA,Headboat,Headboat
+Scamp Grouper_SEDAR68OA,Combined_Video,Combined Video
+Scamp Grouper_SEDAR68OA,RFOP_Index,Recreational Fishery Observer Program Index
+Spanish Mackerel_SEDAR28,Com_GN_1,Commercial Gillnet
+Spanish Mackerel_SEDAR28,Com_RR_2,Commercial Runaround
+Spanish Mackerel_SEDAR28,REC_3,Recreational
+Spanish Mackerel_SEDAR28,Shrimp_Bycatch_4,Shrimp Bycatch
+Spanish Mackerel_SEDAR28,MRFSS_5,Marine Recreational Fishery Statistics Survey
+Spanish Mackerel_SEDAR28,Headboat_6,Headboat
+Spanish Mackerel_SEDAR28,Gillnet_7,Gillnet
+Spanish Mackerel_SEDAR28,COM_FWC_VERT_LINE_8,Commercial FWC Vertical Line
+Spanish Mackerel_SEDAR28,SEAMAP_Survey_9,SEAMAP Survey
+Vermilion Snapper_SEDAR45,CM_E,Commercial East
+Vermilion Snapper_SEDAR45,CM_W,Commercial West
+Vermilion Snapper_SEDAR45,REC,Recreational
+Vermilion Snapper_SEDAR45,SMP_BYC,Shrimp Bycatch
+Vermilion Snapper_SEDAR45,HB_E,Headboat East
+Vermilion Snapper_SEDAR45,HB_W,Headboat West
+Vermilion Snapper_SEDAR45,CM_E_IFQ,Commercial East IFQ
+Vermilion Snapper_SEDAR45,CM_W_IFQ,Commercial West IFQ
+Vermilion Snapper_SEDAR45,LARVAL,Larval
+Vermilion Snapper_SEDAR45,VIDEO,Video Survey
+Vermilion Snapper_SEDAR45,SEAMAP,SEAMAP Survey
+Vermilion Snapper_SEDAR67,HL_E,Handline East
+Vermilion Snapper_SEDAR67,HL_W,Handline West
+Vermilion Snapper_SEDAR67,LL_E,Longline East
+Vermilion Snapper_SEDAR67,LL_W,Longline West
+Vermilion Snapper_SEDAR67,MRIP_E,MRIP East
+Vermilion Snapper_SEDAR67,MRIP_W,MRIP West
+Vermilion Snapper_SEDAR67,HBT_E,Headboat East
+Vermilion Snapper_SEDAR67,HBT_W,Headboat West
+Vermilion Snapper_SEDAR67,C_Clsd_E,Commercial Closed East
+Vermilion Snapper_SEDAR67,C_Clsd_W,Commercial Closed West
+Vermilion Snapper_SEDAR67,R_Clsd_E,Recreational Closed East
+Vermilion Snapper_SEDAR67,R_Clsd_W,Recreational Closed West
+Vermilion Snapper_SEDAR67,Shr_E,Shrimp East
+Vermilion Snapper_SEDAR67,Shr_W,Shrimp West
+Vermilion Snapper_SEDAR67,Video_E,Video Survey East
+Vermilion Snapper_SEDAR67,Video_W,Video Survey West
+Vermilion Snapper_SEDAR67,Larv_E,Larval East
+Vermilion Snapper_SEDAR67,Larv_W,Larval West
+Vermilion Snapper_SEDAR67,Sum_E,Summer Survey East
+Vermilion Snapper_SEDAR67,Sum_W,Summer Survey West
+Vermilion Snapper_SEDAR67,Fall_E,Fall Survey East
+Vermilion Snapper_SEDAR67,Fall_W,Fall Survey West
+Vermilion Snapper_SEDAR67,BLL_W,Bottom Longline West
+Vermilion Snapper_SEDAR67,BLL_E,Bottom Longline East
+Vermilion Snapper_SEDAR67,ROV_E,Remotely Operated Vehicle East
+Vermilion Snapper_SEDAR67,MRIP_Index_E,MRIP Index East
+Vermilion Snapper_SEDAR67,MRIP_Index_W,MRIP Index West
+Vermilion Snapper_SEDAR67,HBT_Index_E,Headboat Index East
+Vermilion Snapper_SEDAR67,HBT_Index_W,Headboat Index West
+Yellowedge Grouper_SEDAR22,COMMHL_E,Commercial Handline East
+Yellowedge Grouper_SEDAR22,COMMHL_W,Commercial Handline West
+Yellowedge Grouper_SEDAR22,COMMLL_E,Commercial Longline East
+Yellowedge Grouper_SEDAR22,COMMLL_W,Commercial Longline West
+Yellowedge Grouper_SEDAR22,NMFSBLL_E,NMFS Bottom Longline East
+Yellowedge Grouper_SEDAR22,NMFSBLL_W,NMFS Bottom Longline West
+Yellowedge Grouper_SEDAR22,NMFSTRW_E,NMFS Trawl East
+Yellowedge Grouper_SEDAR22,NMFSTRW_W,NMFS Trawl West

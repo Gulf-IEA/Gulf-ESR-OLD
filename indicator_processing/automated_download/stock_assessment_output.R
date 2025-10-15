@@ -125,17 +125,15 @@ saveRDS(combined_biomass, file = file.path(input_folder, "combined_biomass_trend
 
 
 
-# RECRUITMENT DEVIATIONS
-# log-scale recruitment deviations from the expected mean
-#recdev = base$recruit[,c("Yr","era","dev")]
-#recdev = recdev %>% 
-#  filter(era != "Fore") %>% 
-#  filter(era != "Forecast") %>%
-#  filter(Yr >= 2000)
-
-
 # RECRUITMENT DEVIATIONS with error
 # log-scale recruitment deviations from the expected mean (with standard error)
+base = SS_outputs_all$`Red Snapper_SEDAR52`
+dir_path <- base$inputs$dir
+path_elements <- unlist(strsplit(dir_path, split = "/|\\\\"))
+path_elements <- path_elements[path_elements != ""]
+Species <- path_elements[length(path_elements) - 1]
+Assessment <- path_elements[length(path_elements)]
+
 summary(base$parameters)
 View(base$parameters)
 temp = base$parameters
@@ -149,6 +147,19 @@ recdev3 = recdev3 %>%
 
 recdev3$upper = recdev3$Value + recdev3$Parm_StDev
 recdev3$lower = recdev3$Value - recdev3$Parm_StDev
+
+
+b = ggplot(recdev3, aes(x=as.numeric(Yr), y=Value)) +
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
+  xlab("Year") +
+  ylab("log recruitment deviations") +
+  theme_classic() +
+  ggtitle(paste0(Species, " ", Assessment)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray40")
+
+
 
 
 #LANDINGS/DISCARDS RATIO

@@ -12,6 +12,7 @@ require(tidyr)
 require(ggplot2)
 require(purrr)
 require(stringr)
+require(rlist)
 
 # load packages
 source("indicator_processing/functions/process_SS_assessments.R")
@@ -107,8 +108,6 @@ for (name in model_names) {
 
 
 
-
-
 ### Combine all the biomass datasets into one data frame ###
 
 # Set the folder where .rds files are stored
@@ -151,9 +150,7 @@ saveRDS(combined_biomass, file = file.path(input_folder, "combined_biomass_trend
 
 
 
-
-
-# RECRUITMENT DEVIATIONS
+######## RECRUITMENT DEVIATIONS (automated) #########
 # log-scale recruitment deviations from the expected mean
 #recdev = base$recruit[,c("Yr","era","dev")]
 #recdev = recdev %>% 
@@ -164,27 +161,135 @@ saveRDS(combined_biomass, file = file.path(input_folder, "combined_biomass_trend
 
 # RECRUITMENT DEVIATIONS with error
 # log-scale recruitment deviations from the expected mean (with standard error)
-summary(base$parameters)
-View(base$parameters)
-temp = base$parameters
-temp2 = temp[grep("RecrDev", temp$Label), , drop = FALSE]
-recdev2 = temp2[,c("Label","Value","Parm_StDev")]
-recdev3 = as.data.frame(separate_wider_delim(recdev2, cols = Label, delim = "_", names = c("Era", "label", "Yr")))
 
-recdev3 = recdev3 %>% 
-  filter(Era == "Main") %>%
-  filter(Yr >= 2000)
+# Define the output folder outside the loop
+output_folder <- "~/My Github Projects/Gulf-ESR-OLD/indicator_data/stock assessment output plots and data V3"
 
-recdev3$upper = recdev3$Value + recdev3$Parm_StDev
-recdev3$lower = recdev3$Value - recdev3$Parm_StDev
+# Get the names of the list items to iterate through
+model_names <- names(SS_outputs_all)
+
+# Loop through each model name
+for (name in model_names) {
+  
+  # Set the current model as 'base'
+  base <- SS_outputs_all[[name]]
+  
+  dir_path <- base$inputs$dir
+  path_elements <- unlist(strsplit(dir_path, split = "/|\\\\"))
+  path_elements <- path_elements[path_elements != ""]
+  
+  # The species name is the second to last element
+  Species <- path_elements[length(path_elements) - 1]
+  # The assessment name is the last element
+  Assessment <- path_elements[length(path_elements)]
+  
+  # Check if parameters data exists
+  if (!is.null(base$parameters)) {
+    # Filter and process the recdev data
+    temp = base$parameters
+    temp2 = temp[grep("RecrDev", temp$Label), , drop = FALSE]
+    recdev2 = temp2[,c("Label","Value","Parm_StDev")]
+    recdev3 = as.data.frame(separate_wider_delim(recdev2, cols = Label, delim = "_", names = c("Era", "label", "Yr")))
+    
+    recdev3 = recdev3 %>% 
+      filter(Era == "Main") %>%
+      filter(Yr >= 2000)
+    
+    recdev3$upper = recdev3$Value + recdev3$Parm_StDev
+    recdev3$lower = recdev3$Value - recdev3$Parm_StDev
+    
+    # Check if there is data after filtering
+    if (nrow(recdev3) > 0) {
+      
+      # Generate the plot
+      b <- ggplot(recdev3, aes(x = as.numeric(Yr), y = Value)) +
+        geom_line(linewidth = 0.8) +
+        geom_point(size = 2) +
+        geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2) +
+        xlab("Year") +
+        ylab("log recruitment deviations") +
+        theme_classic() +
+        ggtitle(paste0(Species, " ", Assessment)) +
+        geom_hline(yintercept = 0, linetype = "dashed", color = "gray40") +
+        theme(
+          axis.title = element_text(size = 14),
+          axis.text = element_text(size = 12),
+          axis.title.y = element_text(vjust = 2),
+          axis.title.x = element_text(vjust = -1)
+        ) +
+        #scale_x_continuous(breaks = unique(recdev3$Yr)) +
+        scale_color_discrete(name = "Area")
+      
+      # Save the plot
+      output_file <- paste0(Species, "_", Assessment, "_recdev.png")
+      ggsave(filename = file.path(output_folder, output_file), plot = b,
+             width = 10, height = 6, dpi = 300)
+    
+    } else {
+      warning(paste("No data for plotting after filtering for", name))
+    }
+  } else {
+    warning(paste("Timeseries data not found for", name))
+  }
+  
+  # Print a message to show progress
+  print(paste("Processed:", name))
+}
+
+
+
 
 
 #LANDINGS/DISCARDS RATIO
 # retained biomass and total catch are listed by fleet, so need to sum across fleets
-# first check the fleet names
-base$FleetNames
-base$type
-ts <- base$timeseries
+# First step is to figure out what all the FleetNames are, so we can automate assigning fleets to "commercial", "recreational", or "survey"
+
+model_names <- names(SS_outputs_all)
+
+# Create an empty list to store the data frames
+all_fleet_dfs_list <- list()
+
+# Loop through each model name
+for (name in model_names) {
+  base <- SS_outputs_all[[name]]
+  
+  # Create a data frame for the current assessment
+  fleet_df <- data.frame(
+    Assessment = name,
+    FleetName = base$FleetNames
+  )
+  
+  # Add the new data frame to your list
+  all_fleet_dfs_list[[name]] <- fleet_df
+}
+
+# Use bind_rows to combine all the data frames in the list
+fleet_names_df <- bind_rows(all_fleet_dfs_list)
+
+fleet_names_wide <- fleet_names_df %>%
+  # Create a unique row identifier for each assessment
+  group_by(Assessment) %>%
+  mutate(row_id = row_number()) %>%
+  ungroup() %>%
+  # Pivot the data
+  pivot_wider(
+    id_cols = row_id, 
+    names_from = Assessment, 
+    values_from = FleetName
+  ) %>%
+  # Remove the temporary row_id column and re-arrange
+  select(-row_id)
+
+saveRDS(fleet_names_df, file = file.path(input_folder, "fleet_names.rds"))
+write.csv(fleet_names_df, row.names = F, file = file.path(input_folder, "fleet_names.csv"))
+
+#Fleet Type	     Keywords (Case-Insensitive)
+#Commercial	     com, comm, chl, cm, hl, ll, gn, nt, vl, trap, rr
+#Recreational	   rec, recreational, mrfss, headboat, hb, charter, cbt, private, pr, shore
+#Survey          survey, srv, seamap, video, pc, fwri, nmfs, trawl, plank, bll, rov, index, age
+#Bycatch         shrimp, shr, smp
+
+
 
 # Identify all retained biomass columns (Ret_Bio)
 retbio_cols <- grep("^retain\\(B\\):", names(ts), value = TRUE)
