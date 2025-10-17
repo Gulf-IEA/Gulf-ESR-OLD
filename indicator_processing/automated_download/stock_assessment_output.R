@@ -135,6 +135,7 @@ Species <- path_elements[length(path_elements) - 1]
 Assessment <- path_elements[length(path_elements)]
 
 summary(base$parameters)
+summary(base$timeseries)
 View(base$parameters)
 temp = base$parameters
 temp2 = temp[grep("RecrDev", temp$Label), , drop = FALSE]
@@ -171,8 +172,8 @@ ts <- base$timeseries
 
 # Identify all retained biomass columns (Ret_Bio)
 retbio_cols <- grep("^retain\\(B\\):", names(ts), value = TRUE)
-comm_retbio_cols = retbio_cols[1:2]
-rec_retbio_cols = retbio_cols[3:5]
+comm_retbio_cols = retbio_cols[1]
+rec_retbio_cols = retbio_cols[2:3]
 ts$Ret_Bio <- rowSums(ts[, retbio_cols], na.rm = TRUE)
 ts$Ret_Bio_comm <- rowSums(ts[, comm_retbio_cols], na.rm = TRUE)
 ts$Ret_Bio_rec <- rowSums(ts[, rec_retbio_cols], na.rm = TRUE)

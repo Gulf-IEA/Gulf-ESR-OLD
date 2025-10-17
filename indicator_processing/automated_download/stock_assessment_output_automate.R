@@ -289,7 +289,180 @@ write.csv(fleet_names_df, row.names = F, file = file.path(input_folder, "fleet_n
 #Survey          survey, srv, seamap, video, pc, fwri, nmfs, trawl, plank, bll, rov, index, age
 #Bycatch         shrimp, shr, smp
 
+name = 3
+# Get the names of the list items to iterate through
+model_names <- names(SS_outputs_all)
 
+# Create an empty list to store the final summary results
+summary_list <- list()
+
+# Loop through each model name
+for (name in model_names) {
+  base <- SS_outputs_all[[name]]
+  ts = base$timeseries
+  
+  # Check if both FleetNames and timeseries exist, otherwise skip
+  if (is.null(base$FleetNames) || is.null(base$timeseries)) {
+    warning(paste("Missing FleetNames or timeseries objects:", name))
+    next
+  }
+  
+  ts = ts %>% 
+    filter(Era == "TIME") %>%
+    filter(Yr >= 2000)
+  
+  # Step 1: Identify which fleets have corresponding data in timeseries
+  timeseries_cols <- colnames(ts)
+  
+  # Use regular expressions to find all "dead(B):_" columns
+  retain_cols <- timeseries_cols[str_detect(timeseries_cols, "dead\\(B\\):_")]
+  
+  # Extract the fleet numbers from the column names
+  retain_fleet_numbers <- as.integer(str_extract(retain_cols, "\\d+"))
+  
+  # Find the fleets that exist in both FleetNames and timeseries
+  available_fleet_names <- base$FleetNames[base$FleetNames %in% base$FleetNames[retain_fleet_numbers]]
+  available_fleet_numbers <- 1:length(available_fleet_names)
+  
+  # Step 2: create a new mapping dataframe with only the available fleets
+  # Create a dataframe to map fleet number to fleet type
+  fleet_mapping <- data.frame(
+    FleetName = available_fleet_names,
+    FleetNumber = available_fleet_numbers
+  )
+  
+  # Categorize fleets based on their names
+  fleet_mapping <- fleet_mapping %>%
+    mutate(
+      FleetType = case_when(
+        str_detect(FleetName, regex("rec|mrfss|headboat|hb|charter|cbt|private|pr|shore|cp", ignore_case = TRUE)) ~ "Recreational",
+        str_detect(FleetName, regex("com|comm|chl|cm|hl|ll|gn|nt|vl|trap|rr", ignore_case = TRUE)) ~ "Commercial",
+        str_detect(FleetName, regex("shrimp|shr|smp", ignore_case = TRUE)) ~ "Bycatch",
+        TRUE ~ "Survey"
+      )
+    )
+  
+  # Step 3: Identify the column names to sum, ensuring they are empty if no fleets are found
+  get_cols <- function(fleet_type, prefix) {
+    fleets_to_sum <- fleet_mapping %>%
+      filter(FleetType == fleet_type) %>%
+      pull(FleetNumber)
+    if (length(fleets_to_sum) > 0) {
+      return(paste0(prefix, fleets_to_sum))
+    } else {
+      return(c())
+    }
+  }
+  
+  commercial_land_fleets <- get_cols("Commercial", "retain(B):_")
+  recreational_land_fleets <- get_cols("Recreational", "retain(N):_")
+  commercial_tot_fleets <- get_cols("Commercial", "dead(B):_")
+  recreational_tot_fleets <- get_cols("Recreational", "dead(N):_")
+  bycatch_disc_fleets <- get_cols("Bycatch", "dead(B):_")
+  
+  
+  # Step 4: Sum the retained catch for commercial and recreational fleets
+  if (length(commercial_land_fleets) > 0) {
+    commercial_landings <- rowSums(ts[, commercial_land_fleets, drop = FALSE], na.rm = TRUE)
+  } else {
+    commercial_landings <- rep(0, nrow(ts))
+  }
+  
+  if (length(commercial_tot_fleets) > 0) {
+    commercial_totcatch <- rowSums(ts[, commercial_tot_fleets, drop = FALSE], na.rm = TRUE)
+  } else {
+    commercial_totcatch <- rep(0, nrow(ts))
+  }
+  
+  if (length(recreational_land_fleets) > 0) {
+    recreational_landings <- rowSums(ts[, recreational_land_fleets, drop = FALSE], na.rm = TRUE)
+  } else {
+    recreational_landings <- rep(0, nrow(ts))
+  }
+  
+  if (length(recreational_tot_fleets) > 0) {
+    recreational_totcatch <- rowSums(ts[, recreational_tot_fleets, drop = FALSE], na.rm = TRUE)
+  } else {
+    recreational_totcatch <- rep(0, nrow(ts))
+  }
+  
+  if (length(bycatch_disc_fleets) > 0) {
+    bycatch_discards <- rowSums(ts[, bycatch_disc_fleets, drop = FALSE], na.rm = TRUE)
+  } else {
+    bycatch_discards <- rep(0, nrow(ts))
+  }
+  
+  #calculate discards and ratios
+  commercial_dead_discards = commercial_totcatch - commercial_landings
+  commercial_ratio = commercial_landings / commercial_dead_discards
+  recreational_dead_discards = recreational_totcatch - recreational_landings
+  recreational_ratio = recreational_landings / recreational_dead_discards
+  
+  # Store the results in a list
+  summary_list[[name]] <- data.frame(
+    assessment = name,
+    year = ts$Yr,
+    commercial_landings = commercial_landings,
+    commercial_totcatch = commercial_totcatch,
+    commercial_dead_discards = commercial_dead_discards,
+    commercial_ratio = commercial_ratio,
+    recreational_landings = recreational_landings,
+    recreational_totcatch = recreational_totcatch,
+    recreational_dead_discards = recreational_dead_discards,
+    recreational_ratio = recreational_ratio,
+    bycatch_discards = bycatch_discards
+  )
+}
+
+# Combine all the results into a single data frame
+final_catch_summary <- bind_rows(summary_list)
+
+
+
+####################################
+###################################
+
+# ok, now I need to add plotting to my loop and then all done with landings and discards 
+
+#################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model_names = names(SS_outputs_all)
+all_fleet_dfs_list = list()
+
+for (name in model_names) {
+  base = SS_outputs_all[[name]]
+  ts <- base$timeseries
+  
+  fleet_df = data.frame(
+    Assessment = name,
+    FleetName = base$FleetNames,
+    
+  )
+  # Identify all retained biomass columns (Ret_Bio)
+  retbio_cols <- grep("^retain\\(B\\):", names(ts), value = TRUE)
+  # Identify all dead biomass columns (TotCat)
+  totcat_cols <- grep("^dead\\(B\\):", names(ts), value = TRUE)
+}
 
 # Identify all retained biomass columns (Ret_Bio)
 retbio_cols <- grep("^retain\\(B\\):", names(ts), value = TRUE)
