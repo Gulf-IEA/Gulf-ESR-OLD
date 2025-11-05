@@ -2,6 +2,11 @@
 
 # Last updated by Carissa Gervasi - 10/14/25
 
+# Need to use an older version of r4ss (version 1.49.3)
+install.packages("remotes")
+library(remotes)
+install_github(repo = "r4ss/r4ss", ref = "v1.49.3")
+
 #load packages
 require(r4ss)
 require(dplyr)
@@ -33,15 +38,28 @@ require(stringr)
 # Yellowedge Grouper 22, 85
 # Yellowtail Snapper 96
 
-# files that don't work
 
 # Need to first access the stock synthesis output files from google drive. Point to drive folder shortcut from google drive desktop. For shared folders you need to access them from the shortcut targets folder in the G drive.
 Species = "Hogfish"
 Assessment = "SEDAR37"
 
+setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Yellowedge Grouper/SEDAR22")
+direct = getwd()
+base=r4ss::SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = TRUE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE, compfile = "none", covarfile = "none")
+
+setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Red Snapper/SEDAR74")
+direct = getwd()
+base=r4ss::SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = TRUE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE, compfile = "none", covarfile = "none")
+
+
 setwd("G:/.shortcut-targets-by-id/1ixDqh6nB2x_6OmR4yevLRsssxIZhJlni/Assessment Report.sso files/Hogfish/SEDAR37")
 direct = getwd()
 base=SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = TRUE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE, compfile = "none", covarfile = "none")
+
+setwd("C://Users/Carissa.Gervasi/Desktop/SEDAR85")
+direct = getwd()
+base=SS_output(dir = direct, dir.mcmc = NULL, repfile = "Report.sso", forecast = FALSE, warn = TRUE, covar = FALSE, readwt = FALSE, verbose = TRUE, NoCompOK = TRUE, compfile = "none", covarfile = "none")
+
 base$startyr
 base$endyr
 
